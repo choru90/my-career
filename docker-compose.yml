@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: my-career-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mycareer
+      SPRING_DATASOURCE_USERNAME: mycareer
+      SPRING_DATASOURCE_PASSWORD: mycareer
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    container_name: my-career-db
+    environment:
+      POSTGRES_DB: mycareer
+      POSTGRES_USER: mycareer
+      POSTGRES_PASSWORD: mycareer
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
