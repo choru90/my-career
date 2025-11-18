@@ -1,0 +1,7 @@
+/build/
+/.gradle/
+**/build/
+.gradle
+.git
+.gitignore
+**/.DS_Store
