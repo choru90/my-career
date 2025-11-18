@@ -9,4 +9,8 @@ class DailyLogRequest {
         val content: String,
         val tags: List<String>,
     )
+
+    data class Get(
+        val id: UUID,
+    )
 }

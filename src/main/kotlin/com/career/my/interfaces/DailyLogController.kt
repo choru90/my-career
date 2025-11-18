@@ -1,7 +1,9 @@
 package com.career.my.interfaces
 
+import com.career.my.domain.DailyLog
 import com.career.my.domain.dto.DailyLogCommand
 import com.career.my.domain.dto.DailyLogRequest
+import com.career.my.domain.dto.DailyLogResponse
 import com.career.my.domain.service.DailyLogService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
@@ -40,5 +42,9 @@ class DailyLogController(
             )
         )
         return "완료"
+    }
+
+    fun get(@Valid request: DailyLogRequest.Get): DailyLogResponse.Get {
+            return service.get(DailyLogCommand.Get(request.id))
     }
 }
