@@ -1,8 +1,9 @@
-package com.career.my.domain.dto
+package com.career.my.application.dto
 
 import java.util.UUID
 
-class DailyLogResponse {
+// 유스케이스 실행 결과를 표현하는 모델
+class DailyLogResult {
     data class Get(
         val id: UUID,
         val userId: UUID,
